@@ -5,7 +5,7 @@ const Log = require('../models/logs.js');
 //Index
 router.get('/', (req, res) => {
     Log.find({}, (error, allLogs) => {
-        res.render('logs/Index', {
+        res.render('logsViews/Index', {
             logs: allLogs
         })
     })
