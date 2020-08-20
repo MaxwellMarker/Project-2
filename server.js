@@ -30,6 +30,8 @@ mongoose.connection.once('open', () => {
 app.get('/', (req, res) => {
     res.send('hello father');
 })
+const logsController = require('./controllers/logs.js');
+app.use('/logs', logsController);
 
 //Listen
 app.listen(PORT, () => {
