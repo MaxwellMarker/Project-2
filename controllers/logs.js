@@ -11,7 +11,22 @@ router.get('/', (req, res) => {
     })
 })
 //New
-
+router.get('/templates', (req, res) => {
+    Log.find({}, (error, allLogs) => {
+        if(error){
+            res.render('logsViews/Templates', {
+                logs: []
+            })
+        } else {
+            res.render('logsViews/Templates', {
+                logs: allLogs
+            })
+        }
+    })
+})
+router.get('/new', (req, res) => {
+    res.render('logsViews/New')
+})
 //Delete
 
 //Update
