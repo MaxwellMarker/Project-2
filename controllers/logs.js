@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 router.get('/templates', (req, res) => {
     Log.find({}, (error, allLogs) => {
         if(error){
+            console.log(error);
             res.render('logsViews/Templates', {
                 logs: []
             })
@@ -32,7 +33,11 @@ router.get('/new', (req, res) => {
 //Update
 
 //Create
-
+router.post('/', (req, res) => {
+    Log.create(req.body, (error, newLog) => {
+        res.redirect('/logs');
+    })
+})
 //Edit
 
 //Show

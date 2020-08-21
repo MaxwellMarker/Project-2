@@ -17,16 +17,17 @@ class Templates extends React.Component {
                                 <h1>Start from scratch</h1>
                             </div>
                         </a>
-                        {logs[0] ? `${logs.map((log) => {
+                        {logs.map((log) => {
                             return (
                                 <a href={`/logs/new/${log._id}`} key={log._id}>
-                                    <div>
-                                        <h1>{log.date}</h1>
+                                    <div style={{'backgroundColor': log.color}}>
+                                        <h1>{log.date.toDateString()}</h1>
                                         <h2>{log.title}</h2>
+                                        <p>{log.description}</p>
                                     </div>
                                 </a>
                             )
-                        })}` : ''}
+                        })}
                     </div>
                 </div>
             </Layout>

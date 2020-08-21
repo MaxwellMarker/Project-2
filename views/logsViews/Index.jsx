@@ -4,6 +4,7 @@ const Layout = require('../components/Layout.jsx');
 class Index extends React.Component {
     render(){
         const logs = this.props.logs;
+        console.log(logs);
         return(
             <Layout>
                 <div>
@@ -15,7 +16,18 @@ class Index extends React.Component {
                             <h1>Log New Workout</h1>
                         </div>
                     </a>
-                    {/* {logs.map((log) => {
+                    {logs.map((log) => {
+                        return(
+                            <a href={`logs/${log._id}`} key={log._id}>
+                                <div style={{'backgroundColor': log.color}}>
+                                    <h1>{log.date.toDateString()}</h1>
+                                    <h2>{log.title}</h2>
+                                    <p>{log.description}</p>
+                                </div>
+                            </a>
+                        )
+                    })}
+                    {/* {logs[0] ? `${logs.map((log) => {
                         return(
                             <a href={`logs/new/${log._id}`} key={log._id}>
                                 <div>
@@ -25,18 +37,7 @@ class Index extends React.Component {
                                 </div>
                             </a>
                         )
-                    })} */}
-                    {logs[0] ? `${logs.map((log) => {
-                        return(
-                            <a href={`logs/new/${log._id}`} key={log._id}>
-                                <div>
-                                    <h1>{log.date}</h1>
-                                    <h2>{log.title}</h2>
-                                    <p>{log.description}</p>
-                                </div>
-                            </a>
-                        )
-                    })}` : ''}
+                    })}` : ''} */}
                 </div>
             </Layout>
         )
