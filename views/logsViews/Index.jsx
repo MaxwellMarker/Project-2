@@ -22,10 +22,13 @@ class Index extends React.Component {
                     {logs.map((log) => {
                         return(
                             <a href={`logs/${log._id}`} key={log._id}>
-                                <div style={{'backgroundColor': log.color}}>
+                                <div style={{'border': `solid 5px ${log.color}`}}>
                                     <h1>{log.date.toDateString()}</h1>
                                     <h2>{log.title}</h2>
                                     <p>{log.description}</p>
+                                    <form action={`/logs/${log._id}?_method=DELETE`} method='POST'>
+                                        <input type="submit" value="Delete"/>
+                                    </form>
                                 </div>
                             </a>
                         )

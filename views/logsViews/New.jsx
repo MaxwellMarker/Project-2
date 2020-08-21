@@ -8,7 +8,7 @@ class New extends React.Component {
                 <div>
                     <form action="/logs" method='POST'>
                         <label htmlFor="date">Date</label>
-                        <input type="date" name="date" id="date"/><br/>
+                        <input type="datetime-local" name="date" id="date"/><br/>
                         <label htmlFor="title">Title</label>
                         <input type="text" name="title" id="title"/><br/>
                         <label htmlFor="bw">Body Weight in Pounds</label>

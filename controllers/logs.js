@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Log = require('../models/logs.js');
+const { findByIdAndRemove } = require('../models/logs.js');
 
 //Index
 router.get('/', (req, res) => {
@@ -43,7 +44,11 @@ router.get('/:id/new', (req, res) => {
     })
 })
 //Delete
-
+router.delete('/:id', (req, res) => {
+    Log.findByIdAndRemove(req.params.id, (error, logDel) => {
+        res.redirect('/logs')
+    })
+})
 //Update
 //Create
 router.post('/', (req, res) => {

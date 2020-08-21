@@ -1,6 +1,8 @@
 * {
     color: rgb(12, 50, 18);
     margin: 0;
+    text-decoration: none;
+    font-family: 'Avenir', Arial;
 }
 form {
     display: flex;
@@ -12,4 +14,33 @@ input {
 textarea {
     resize: none;
     width: 100%;
+}
+.allHeader {
+    background-color: rgb(0, 123, 255);
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.headerNav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(0,0,0,.2);
+}
+.headerTitle {
+    height: 71px;
+    line-height: 71px;
+    color: white;
+    font-size: 50px;
+}
+.headerLink {
+    color: white;
+    background-color: rgba(0,0,0,.2);
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin: 2px 1px;
 }

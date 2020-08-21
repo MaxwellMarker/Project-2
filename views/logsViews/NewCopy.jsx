@@ -7,17 +7,17 @@ class NewCopy extends React.Component {
         return(
             <Layout>
                 <div>
-                    <form action={`/logs/${log._id}`} method='POST'>
-                        <label htmlFor="name">Exercise Name</label>
-                        <input type="text" name="name" id="name"/><br/>
-                        <label htmlFor="sets">Expected Sets</label>
-                        <input type="number" name="sets" id="sets"/><br/>
-                        <label htmlFor="reps">Expected Reps per Set</label>
-                        <input type="number" name="reps" id="reps"/><br/>
-                        <label htmlFor="weight">Expected Weight in Pounds</label>
-                        <input type="number" name="weight" id="weight"/><br/>
-                        <label htmlFor="notes">Notes</label>
-                        <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+                <form action="/logs" method='POST'>
+                        <label htmlFor="date">Date</label>
+                        <input type="date" name="date" id="date" required={true}/><br/>
+                        <label htmlFor="title">Title</label>
+                        <input type="text" name="title" id="title" defaultValue={log.title}/><br/>
+                        <label htmlFor="bw">Body Weight in Pounds</label>
+                        <input type="number" name="bodyWeight" id="bw" defaultValue={log.bodyWeight}/><br/>
+                        <label htmlFor="description">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10" defaultValue={log.description}></textarea><br/>
+                        <label htmlFor="color">Color</label>
+                        <input type="color" name="color" id="color" defaultValue={log.color}/><br/>
                         <input type="submit"/>
                     </form>
                 </div>

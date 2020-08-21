@@ -12,10 +12,12 @@ class Layout extends React.Component {
                     <title>REST Day</title>
                 </head>
                 <body>
-                    <div>
-                        <h1>REST Day</h1>
-                        <a href="/">Home</a>
-                        <a href="/logs">Logs</a>
+                    <div className='allHeader'>
+                        <h1 className='headerTitle'>REST Day</h1>
+                        <div className='headerNav'>
+                            <a href="/" className='headerLink'>Home</a>
+                            <a href="/logs" className='headerLink'>Logs</a>
+                        </div>
                     </div>
                     {this.props.children}
                 </body>
