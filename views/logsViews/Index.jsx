@@ -10,19 +10,19 @@ class Index extends React.Component {
         logs.sort(sorter);
         return(
             <Layout>
-                <div>
+                <div className='logIndexHeader'>
                     <h1>Workout Log</h1>
                 </div>
                 <div>
-                    <a href='/logs/templates'>
-                        <div>
-                            <h1>Log New Workout</h1>
-                        </div>
-                    </a>
+                    <div className='newLogLink'>
+                        <a href='/logs/templates'>
+                            <h2 className='newLinkText'>Log New Workout</h2>
+                        </a>
+                    </div>
                     {logs.map((log) => {
                         return(
                             <a href={`logs/${log._id}`} key={log._id}>
-                                <div style={{'border': `solid 5px ${log.color}`}}>
+                                <div className='logIndexContainer' style={{'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
                                     <h1>{log.date.toDateString()}</h1>
                                     <h2>{log.title}</h2>
                                     <p>{log.description}</p>
