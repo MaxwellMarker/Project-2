@@ -28,6 +28,13 @@ router.get('/templates', (req, res) => {
 router.get('/new', (req, res) => {
     res.render('logsViews/New')
 })
+router.get('/:id/new', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        res.render('exercises/New', {
+            log: log
+        })
+    })
+})
 //Delete
 
 //Update

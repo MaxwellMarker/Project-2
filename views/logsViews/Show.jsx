@@ -13,6 +13,7 @@ class Show extends React.Component {
                     <h2>{log.description}</h2>
                 </div>
                 <div>
+                    <h2>Routine</h2>
                     {log.exercises.map((exer) => {
                         return (
                             <h2>exercise</h2>
