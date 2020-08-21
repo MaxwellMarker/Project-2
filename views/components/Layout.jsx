@@ -12,6 +12,11 @@ class Layout extends React.Component {
                     <title>REST Day</title>
                 </head>
                 <body>
+                    <div>
+                        <h1>REST Day</h1>
+                        <a href="/">Home</a>
+                        <a href="/logs">Logs</a>
+                    </div>
                     {this.props.children}
                 </body>
             </html>

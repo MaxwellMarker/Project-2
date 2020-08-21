@@ -5,6 +5,10 @@ const { mapReduce } = require('../../models/logs.js');
 class Templates extends React.Component {
     render() {
         const logs = this.props.logs;
+        const sorter = (a, b) => {
+            return Date.parse(b.date) - Date.parse(a.date)
+        };
+        logs.sort(sorter);
         return (
             <Layout>
                 <div>

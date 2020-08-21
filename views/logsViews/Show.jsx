@@ -4,6 +4,7 @@ const Layout = require('../components/Layout.jsx');
 class Show extends React.Component {
     render() {
         const log = this.props.log;
+        // const sameSet = (set) => set === exer.sets[0]
         return (
             <Layout>
                 <div>
@@ -14,9 +15,22 @@ class Show extends React.Component {
                 </div>
                 <div>
                     <h2>Routine</h2>
-                    {log.exercises.map((exer) => {
+                    {log.routine.map((exer) => {
+                        const sameSet = (set) => set === exer.sets[0]
                         return (
-                            <h2>exercise</h2>
+                            <div>
+                                <h2>{exer.name}</h2>
+                                {exer.sets.every(sameSet)
+                                ? (exer.sets.map((set) => {
+                                    return(
+                                        <div>
+                                            <h3>set {set.setNumber}: {set.weight} lbs for {set.reps} reps</h3>
+                                        </div>
+                                    )
+                                }))
+                            : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} reps</h3>}
+                                
+                            </div>
                         )
                     })}
                     <a href={`/logs/${log._id}/new`}><h2>Add</h2></a>

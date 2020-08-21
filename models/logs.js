@@ -6,7 +6,7 @@ const logSchema = new mongoose.Schema({
     color: {type: String, required: true},
     bodyWeight: {type: Number},
     description: {type: String},
-    exercises: {type: Array}
+    routine: {type: Array}
 },{timestamps: true})
 
 const Log = mongoose.model('Log', logSchema);
