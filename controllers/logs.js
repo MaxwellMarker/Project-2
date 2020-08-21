@@ -41,5 +41,11 @@ router.post('/', (req, res) => {
 //Edit
 
 //Show
-
+router.get('/:id', (req, res) => {
+    Log.findById(req.params.id, (error, selectedLog) => {
+        res.render('logsViews/Show', {
+            log: selectedLog
+        })
+    })
+})
 module.exports = router;

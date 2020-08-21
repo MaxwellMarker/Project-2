@@ -7,10 +7,10 @@ class New extends React.Component {
             <Layout>
                 <div>
                     <form action="/logs" method='POST'>
-                        <label htmlFor="title">Title: </label>
-                        <input type="text" name="title" id="title"/><br/>
                         <label htmlFor="date">Date: </label>
                         <input type="date" name="date" id="date"/><br/>
+                        <label htmlFor="title">Title: </label>
+                        <input type="text" name="title" id="title"/><br/>
                         <label htmlFor="bw">Body Weight (lbs): </label>
                         <input type="number" name="bodyWeight" id="bw"/><br/>
                         <label htmlFor="description">Description: </label>
