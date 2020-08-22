@@ -53,7 +53,7 @@ textarea {
 }
 .logIndexContainer {
     border-radius: 5px;
-    margin: 10px;
+    margin: 10px 10%;
     padding: 10px;
 }
 .logIndexHeader {
@@ -62,10 +62,10 @@ textarea {
     font-size: 26px;
 }
 .newLogLink {
-    margin: 10px;
+    margin: 10px auto;
     background-color: rgb(0, 123, 255);
     text-align: center;
-    width: 250px;
+    width: 30%;
     border-radius: 5px;
 }
 .newLinkText {

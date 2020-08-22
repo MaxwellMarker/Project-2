@@ -8,7 +8,7 @@ class Show extends React.Component {
         return (
             <Layout>
                 <div className='logShowContainer' style={{'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
-                    <div>
+                    <div className='showWorkoutInfo'>
                         <h1>{log.date.toDateString()}</h1>
                         <h2>{log.title}</h2>
                         <h2>Body Weight: {log.bodyWeight} lbs</h2>
@@ -29,7 +29,7 @@ class Show extends React.Component {
                                                 </div>
                                             )
                                         }))
-                                        : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} reps</h3>}
+                                        : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>}
                                 </div>
                             )
                         })}

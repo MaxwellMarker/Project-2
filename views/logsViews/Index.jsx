@@ -24,6 +24,7 @@ class Index extends React.Component {
                             <a href={`logs/${log._id}`} key={log._id}>
                                 <div className='logIndexContainer' style={{'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
                                     <h1>{log.date.toDateString()}</h1>
+                                    <h2>{log.date.toLocaleTimeString()}</h2>
                                     <h2>{log.title}</h2>
                                     <p>{log.description}</p>
                                     <form action={`/logs/${log._id}?_method=DELETE`} method='POST'>
@@ -33,17 +34,6 @@ class Index extends React.Component {
                             </a>
                         )
                     })}
-                    {/* {logs[0] ? `${logs.map((log) => {
-                        return(
-                            <a href={`logs/new/${log._id}`} key={log._id}>
-                                <div>
-                                    <h1>{log.date}</h1>
-                                    <h2>{log.title}</h2>
-                                    <p>{log.description}</p>
-                                </div>
-                            </a>
-                        )
-                    })}` : ''} */}
                 </div>
             </Layout>
         )
