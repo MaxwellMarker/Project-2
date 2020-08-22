@@ -28,7 +28,7 @@ mongoose.connection.once('open', () => {
 
 //Controllers
 app.get('/', (req, res) => {
-    res.send('hello father');
+    res.render('Home');
 })
 const logsController = require('./controllers/logs.js');
 app.use('/logs', logsController);

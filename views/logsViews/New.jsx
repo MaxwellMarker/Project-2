@@ -14,7 +14,7 @@ class New extends React.Component {
                         <label htmlFor="bw">Body Weight in Pounds</label>
                         <input type="number" name="bodyWeight" id="bw"/><br/>
                         <label htmlFor="description">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea><br/>
+                        <textarea name="description" id="description" cols="30" rows="5"></textarea><br/>
                         <label htmlFor="color">Color</label>
                         <input type="color" name="color" id="color"/><br/>
                         <input type="submit"/>

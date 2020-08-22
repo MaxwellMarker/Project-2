@@ -17,6 +17,7 @@ class Layout extends React.Component {
                         <div className='headerNav'>
                             <a href="/" className='headerLink'>Home</a>
                             <a href="/logs" className='headerLink'>Logs</a>
+                            <a href="/prs" className='headerLink'>PRs</a>
                         </div>
                     </div>
                     {this.props.children}

@@ -21,9 +21,10 @@ textarea {
     background-color: rgb(0, 123, 255);
     width: 100%;
     text-align: center;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .headerNav {
     display: flex;
@@ -32,10 +33,10 @@ textarea {
     background-color: rgba(0,0,0,.2);
 }
 .headerTitle {
-    height: 71px;
-    line-height: 71px;
+    height: 80px;
+    line-height: 80px;
     color: white;
-    font-size: 50px;
+    font-size: 65px;
 }
 .headerLink {
     color: white;
@@ -54,7 +55,17 @@ textarea {
 .logIndexContainer {
     border-radius: 5px;
     margin: 10px 10%;
-    padding: 10px;
+    min-width: 375px;
+    padding: 0;
+    position: relative;
+}
+.logIndexContainer:hover {
+    transition: .3s;
+    margin: 10px 9.5%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+}
+.indexP {
+    width: 70%;
 }
 .logIndexHeader {
     margin: 10px;
@@ -66,8 +77,51 @@ textarea {
     background-color: rgb(0, 123, 255);
     text-align: center;
     width: 30%;
+    min-width: 225px;
     border-radius: 5px;
+    transition: .3s;
+}
+.newLogLink:hover {
+    background-color: rgb(0, 94, 255);
 }
 .newLinkText {
     color: white;
+}
+.logIndexInner {
+    padding: 10px;
+}
+.deleteIndex {
+    border: solid 5px rgb(184, 60, 60);
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    width: 15%;
+    min-width: 100px;
+    height: 40%;
+    position: absolute;
+    top: 5%;
+    right: 10px;
+    background-color: rgba(184, 60, 60, .6);
+}
+.deleteIndex:hover {
+    background-color: rgb(184, 60, 60);
+}
+.editIndex {
+    box-sizing: border-box;
+    border: solid 5px rgb(0, 123, 255);
+    border-radius: 5px;
+    text-align: center;
+    line-height: 55px;
+    color: white;
+    font-size: 20px;
+    width: 15%;
+    min-width: 100px;
+    height: 40%;
+    position: absolute;
+    bottom: 5%;
+    right: 10px;
+    background-color: rgba(0, 123, 255, .6);
+}
+.editIndex:hover {
+    background-color: rgb(0, 123, 255);
 }
