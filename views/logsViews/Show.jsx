@@ -7,14 +7,15 @@ class Show extends React.Component {
         // const sameSet = (set) => set === exer.sets[0]
         return (
             <Layout>
-                <div className='logShowContainer' style={{'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
-                    <div className='showWorkoutInfo'>
+                <div className='logShowContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
+                    <div className='showWorkoutInfo' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
                         <h1>{log.date.toDateString()}</h1>
+                        <h2>{log.date.toLocaleTimeString()}</h2>
                         <h2>{log.title}</h2>
                         <h2>Body Weight: {log.bodyWeight} lbs</h2>
                         <p>{log.description}</p>
                     </div>
-                    <div>
+                    <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
                         <h2>Routine</h2>
                         {log.routine.map((exer) => {
                             const sameSet = (set) => set === exer.sets[0]
@@ -29,7 +30,9 @@ class Show extends React.Component {
                                                 </div>
                                             )
                                         }))
-                                        : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>}
+                                        : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>
+                                    }
+                                    <h3>{exer.notes}</h3>
                                 </div>
                             )
                         })}

@@ -50,6 +50,11 @@ router.delete('/:id', (req, res) => {
     })
 })
 //Update
+router.put('/:id', (req, res) => {
+    Log.findByIdAndUpdate(req.params.id, req.body, (error, log) => {
+        res.redirect('/logs')
+    })
+})
 //Create
 router.post('/', (req, res) => {
     Log.create(req.body, (error, newLog) => {
@@ -80,7 +85,13 @@ router.post('/:id', (req, res) => {
     })
 })
 //Edit
-
+router.get('/:id/edit', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        res.render('logsViews/Edit', {
+            log: log
+        })
+    })
+})
 //Show
 router.get('/:id', (req, res) => {
     Log.findById(req.params.id, (error, selectedLog) => {

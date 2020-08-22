@@ -49,13 +49,33 @@ textarea {
 }
 .logShowContainer {
     border-radius: 5px;
-    margin: 10px;
+    width: 80%;
+    min-width: 340px;
+    margin: 10px auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.showWorkoutInfo {
+    width: 45%;
+    min-width: 300px;
+    border-radius: 5px;
     padding: 10px;
+    margin: 10px 0;
+}
+.showRoutine {
+    width: 45%;
+    min-width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
 }
 .logIndexContainer {
     border-radius: 5px;
-    margin: 10px 10%;
-    min-width: 375px;
+    width: 80%;
+    margin: 10px auto;
+    min-width: 360px;
     padding: 0;
     position: relative;
 }
@@ -96,8 +116,8 @@ textarea {
     color: white;
     font-size: 20px;
     width: 15%;
-    min-width: 100px;
-    height: 40%;
+    min-width: 80px;
+    height: 55px;
     position: absolute;
     top: 5%;
     right: 10px;
@@ -111,12 +131,12 @@ textarea {
     border: solid 5px rgb(0, 123, 255);
     border-radius: 5px;
     text-align: center;
-    line-height: 55px;
+    line-height: 45px;
     color: white;
     font-size: 20px;
     width: 15%;
-    min-width: 100px;
-    height: 40%;
+    min-width: 90px;
+    height: 55px;
     position: absolute;
     bottom: 5%;
     right: 10px;
