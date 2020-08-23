@@ -55,23 +55,63 @@ router.put('/:id', (req, res) => {
         res.redirect('/logs')
     })
 })
+router.put('/:id/up', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        req.body.position = parseInt(req.body.position);
+        const newRoutine = log.routine;
+        const sorter = (a, b) => {
+            return a.position - b.position;
+        }
+        newRoutine.sort(sorter);
+        newRoutine[req.body.position].position--
+        newRoutine[req.body.position - 1].position++
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+            res.redirect(`/logs/${log._id}`);
+        })
+    })
+})
+router.put('/:id/down', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        req.body.position = parseInt(req.body.position);
+        const newRoutine = log.routine;
+        const sorter = (a, b) => {
+            return a.position - b.position;
+        }
+        newRoutine.sort(sorter);
+        newRoutine[req.body.position].position++
+        newRoutine[req.body.position + 1].position--
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+            res.redirect(`/logs/${log._id}`);
+        })
+    })
+})
 //Create
 router.post('/', (req, res) => {
-    Log.create(req.body, (error, newLog) => {
-        res.redirect('/logs');
-    })
+    if(req.body.prevId){
+        Log.findById(req.body.prevId, (error, log) => {
+            req.body.routine = log.routine;
+            Log.create(req.body, (error, newLog) => {
+                res.redirect('/logs');
+            })
+        })
+    } else {
+        Log.create(req.body, (error, newLog) => {
+            res.redirect('/logs');
+        })
+    }
 })
 router.post('/:id', (req, res) => {
     const exercise = {
         name: req.body.name,
         sets: [],
-        notes: req.body.notes
+        notes: req.body.notes,
+        position: parseInt(req.body.position)
     }
     for (let i = 1; i <= req.body.sets; i++) {
         const set = {
             setNumber: i,
-            weight: req.body.weight,
-            reps: req.body.reps
+            weight: parseInt(req.body.weight),
+            reps: parseInt(req.body.reps)
         }
         exercise.sets.push(set);
     }

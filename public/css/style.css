@@ -64,12 +64,21 @@ textarea {
     padding: 10px;
     margin: 10px 0;
 }
+.routineHeader {
+    text-align: center;
+}
 .showRoutine {
     width: 45%;
     min-width: 300px;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+}
+.routineItem {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: rgba(255,255,255,.3);
 }
 .logIndexContainer {
     border-radius: 5px;

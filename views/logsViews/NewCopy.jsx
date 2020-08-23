@@ -7,7 +7,7 @@ class NewCopy extends React.Component {
         return(
             <Layout>
                 <div>
-                <form action="/logs" method='POST'>
+                    <form action="/logs" method='POST'>
                         <label htmlFor="date">Date</label>
                         <input type="datetime-local" name="date" id="date" required={true}/><br/>
                         <label htmlFor="title">Title</label>
@@ -18,6 +18,7 @@ class NewCopy extends React.Component {
                         <textarea name="description" id="description" cols="30" rows="5" defaultValue={log.description}></textarea><br/>
                         <label htmlFor="color">Color</label>
                         <input type="color" name="color" id="color" defaultValue={log.color}/><br/>
+                        <input type="hidden" name="prevId" value={log._id}/>
                         <input type="submit"/>
                     </form>
                 </div>

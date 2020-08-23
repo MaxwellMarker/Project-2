@@ -1,31 +1,36 @@
 const React = require('react');
 const Layout = require('../components/Layout.jsx');
+const { set } = require('mongoose');
 
 class Show extends React.Component {
     render() {
         const log = this.props.log;
+        const sorter = (a, b) => {
+            return a.position - b.position;
+        }
+        log.routine.sort(sorter)
         // const sameSet = (set) => set === exer.sets[0]
         return (
             <Layout>
-                <div className='logShowContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
-                    <div className='showWorkoutInfo' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
+                <div className='logShowContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
+                    <div className='showWorkoutInfo' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
                         <h1>{log.date.toDateString()}</h1>
                         <h2>{log.date.toLocaleTimeString()}</h2>
                         <h2>{log.title}</h2>
                         <h2>Body Weight: {log.bodyWeight} lbs</h2>
                         <p>{log.description}</p>
                     </div>
-                    <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66'}}>
-                        <h2>Routine</h2>
+                    <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
+                        <h2 className='routineHeader'>Routine</h2>
                         {log.routine.map((exer) => {
                             const sameSet = (set) => set === exer.sets[0]
                             return (
-                                <div>
+                                <div className='routineItem' key={exer.name}>
                                     <h2>{exer.name}</h2>
                                     {exer.sets.every(sameSet)
                                         ? (exer.sets.map((set) => {
                                             return (
-                                                <div>
+                                                <div key={set.setNumber}>
                                                     <h3>set {set.setNumber}: {set.weight} lbs for {set.reps} {set.reps > 1 ? 'reps' : 'rep'}</h3>
                                                 </div>
                                             )
@@ -33,10 +38,24 @@ class Show extends React.Component {
                                         : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>
                                     }
                                     <h3>{exer.notes}</h3>
+                                    {exer.position === 0 
+                                        ? ''
+                                        :<form action={`/logs/${log._id}/up?_method=PUT`} method='POST'>
+                                            <input type="hidden" name="position" value={exer.position}/>
+                                            <input type="submit" value='up' />
+                                        </form>
+                                    }
+                                    {exer.position === log.routine.length - 1 
+                                        ? ''
+                                        :<form action={`/logs/${log._id}/down?_method=PUT`} method='POST'>
+                                            <input type="hidden" name="position" value={exer.position}/>
+                                            <input type="submit" value='down' />
+                                        </form>
+                                    }
                                 </div>
                             )
                         })}
-                        <a href={`/logs/${log._id}/new`}><h2>Add</h2></a>
+                        <h2><a href={`/logs/${log._id}/new`}>Add</a></h2>
                     </div>
                 </div>
             </Layout>

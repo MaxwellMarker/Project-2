@@ -20,6 +20,7 @@ class New extends React.Component {
                         <input type="number" name="weight" id="weight"/><br/>
                         <label htmlFor="notes">Description</label>
                         <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+                        <input type="hidden" name="position" value={log.routine.length}/>
                         <input type="submit"/>
                     </form>
                 </div>

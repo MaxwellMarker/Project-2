@@ -21,7 +21,7 @@ class Index extends React.Component {
                     </div>
                     {logs.map((log) => {
                         return (
-                            <div className='logIndexContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
+                            <div className='logIndexContainer' key={log._id} style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
                                 <a className='showLink' href={`logs/${log._id}`} key={log._id}>
                                     <div className='logIndexInner'>
                                         <h1>{log.date.toDateString()}</h1>
