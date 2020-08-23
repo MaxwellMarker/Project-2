@@ -132,6 +132,18 @@ router.get('/:id/edit', (req, res) => {
         })
     })
 })
+router.get('/:id/:position/edit', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        const sortedRoutine = log.routine;
+        const sorter = (a, b) => {
+            return a.position - b.position;
+        }
+        sortedRoutine.sort(sorter);
+        res.render('exercises/Edit', {
+            exercise: sortedRoutine[req.params.position]
+        })
+    })
+})
 //Show
 router.get('/:id', (req, res) => {
     Log.findById(req.params.id, (error, selectedLog) => {
