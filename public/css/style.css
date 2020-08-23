@@ -20,6 +20,9 @@ input {
     width: 100%;
 }
 input:hover {
+    cursor: text;
+}
+input[type=submit] {
     cursor: pointer;
 }
 textarea {

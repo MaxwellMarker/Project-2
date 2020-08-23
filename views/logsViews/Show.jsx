@@ -23,20 +23,21 @@ class Show extends React.Component {
                     <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
                         <h2 className='routineHeader'>Routine</h2>
                         {log.routine.map((exer) => {
-                            const sameSet = (set) => set === exer.sets[0]
+                            const sameReps = (set) => {return set.reps === exer.sets[0].reps}
+                            const sameWeight = (set) => {return set.weight === exer.sets[0].weight}
                             return (
                                 <div className='routineItem' key={exer.name}>
                                     <a href={`/logs/${log._id}/${exer.position}/edit`}>
                                         <h2>{exer.name}</h2>
-                                        {exer.sets.every(sameSet)
-                                            ? (exer.sets.map((set) => {
+                                        {exer.sets.every(sameReps) && exer.sets.every(sameWeight)
+                                            ? <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>
+                                            : (exer.sets.map((set) => {
                                                 return (
                                                     <div key={set.setNumber}>
                                                         <h3>set {set.setNumber}: {set.weight} lbs for {set.reps} {set.reps > 1 ? 'reps' : 'rep'}</h3>
                                                     </div>
                                                 )
                                             }))
-                                            : <h3>{exer.sets[0].weight} lbs for {exer.sets.length} sets of {exer.sets[0].reps} {exer.sets[0].reps > 1 ? 'reps' : 'rep'}</h3>
                                         }
                                         <h3>{exer.notes}</h3>
                                         {exer.position === 0

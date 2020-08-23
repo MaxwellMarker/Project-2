@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Log = require('../models/logs.js');
-const { findByIdAndRemove } = require('../models/logs.js');
+const sorter = (a, b) => {
+    return a.position - b.position;
+}
 
 //Index
 router.get('/', (req, res) => {
@@ -59,9 +61,6 @@ router.put('/:id/up', (req, res) => {
     Log.findById(req.params.id, (error, log) => {
         req.body.position = parseInt(req.body.position);
         const newRoutine = log.routine;
-        const sorter = (a, b) => {
-            return a.position - b.position;
-        }
         newRoutine.sort(sorter);
         newRoutine[req.body.position].position--
         newRoutine[req.body.position - 1].position++
@@ -74,14 +73,36 @@ router.put('/:id/down', (req, res) => {
     Log.findById(req.params.id, (error, log) => {
         req.body.position = parseInt(req.body.position);
         const newRoutine = log.routine;
-        const sorter = (a, b) => {
-            return a.position - b.position;
-        }
         newRoutine.sort(sorter);
         newRoutine[req.body.position].position++
         newRoutine[req.body.position + 1].position--
         Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
             res.redirect(`/logs/${log._id}`);
+        })
+    })
+})
+router.put('/:id/:position', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        const newRoutine = log.routine
+        newRoutine.sort(sorter)
+        const exercise = newRoutine[req.params.position]
+        const newExercise = {
+            name: req.body.name,
+            notes: req.body.notes,
+            sets: [],
+            position: req.params.position
+        }
+        for(let i = 1; i <= exercise.sets.length; i++) {
+            const set = {
+                setNumber: i,
+                reps: eval('req.body.reps' + i),
+                weight: eval('req.body.weight' + i)
+            }
+            newExercise.sets.push(set);
+        }
+        newRoutine[req.params.position] = newExercise
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+            res.redirect(`/logs/${req.params.id}`);
         })
     })
 })
@@ -135,12 +156,10 @@ router.get('/:id/edit', (req, res) => {
 router.get('/:id/:position/edit', (req, res) => {
     Log.findById(req.params.id, (error, log) => {
         const sortedRoutine = log.routine;
-        const sorter = (a, b) => {
-            return a.position - b.position;
-        }
         sortedRoutine.sort(sorter);
         res.render('exercises/Edit', {
-            exercise: sortedRoutine[req.params.position]
+            exercise: sortedRoutine[req.params.position],
+            log: log
         })
     })
 })

@@ -2,21 +2,30 @@ const React = require('react');
 const Layout = require('../components/Layout');
 
 class Edit extends React.Component {
-    render(){
+    render() {
         const exercise = this.props.exercise
-        console.log(exercise);
-        return(
+        const log = this.props.log
+        return (
             <Layout>
                 <h1>Edit Exercise</h1>
-                <h2>{exercise.name}</h2>
-                {exercise.sets.map((set) => {
-                    return(
-                        <div>
-                            <h2>{set.setNumber}</h2>
-                            <h2>{set.reps} {set.weight}</h2>
-                        </div>
-                    )
-                })}
+                <form action={`/logs/${log._id}/${exercise.position}?_method=PUT`} method='POST'>
+                    <label htmlFor="name">Exercise</label>
+                    <input type="text" name="name" id="name" defaultValue={exercise.name}/><br/>
+                    <label htmlFor="notes">Description</label>
+                    <textarea name="notes" id="notes" cols="30" rows="5" defaultValue={exercise.notes}></textarea>
+                    {exercise.sets.map((set) => {
+                        return (
+                            <div key={set.setNumber}>
+                                <h2>set {set.setNumber}</h2>
+                                <label htmlFor={`reps${set.setNumber}`}>Reps</label>
+                                <input type="number" name={`reps${set.setNumber}`} id={`reps${set.setNumber}`} defaultValue={set.reps}/><br />
+                                <label htmlFor={`weight${set.setNumber}`} >Weight</label>
+                                <input type="number" name={`weight${set.setNumber}`} id={`weight${set.setNumber}`} defaultValue={set.weight}/><br />
+                            </div>
+                        )
+                    })}
+                    <input type="submit"/>
+                </form>
             </Layout>
         )
     }
