@@ -17,7 +17,10 @@ class Show extends React.Component {
                         <h1>{log.date.toDateString()}</h1>
                         <h2>{log.date.toLocaleTimeString()}</h2>
                         <h2>{log.title}</h2>
-                        <h2>Body Weight: {log.bodyWeight} lbs</h2>
+                        {log.bodyWeight
+                            ? <h2>Body Weight: {log.bodyWeight} lbs</h2>
+                            : ''
+                        }
                         <p>{log.description}</p>
                     </div>
                     <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}00`, 'backgroundColor': log.color + '66' }}>

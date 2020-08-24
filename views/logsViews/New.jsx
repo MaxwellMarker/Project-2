@@ -8,9 +8,9 @@ class New extends React.Component {
                 <div>
                     <form action="/logs" method='POST'>
                         <label htmlFor="date">Date</label>
-                        <input type="datetime-local" name="date" id="date"/><br/>
+                        <input type="datetime-local" name="date" id="date" required={true}/><br/>
                         <label htmlFor="title">Title</label>
-                        <input type="text" name="title" id="title"/><br/>
+                        <input type="text" name="title" id="title" required={true}/><br/>
                         <label htmlFor="bw">Body Weight in Pounds</label>
                         <input type="number" name="bodyWeight" id="bw"/><br/>
                         <label htmlFor="description">Description</label>

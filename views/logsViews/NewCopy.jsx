@@ -11,7 +11,7 @@ class NewCopy extends React.Component {
                         <label htmlFor="date">Date</label>
                         <input type="datetime-local" name="date" id="date" required={true}/><br/>
                         <label htmlFor="title">Title</label>
-                        <input type="text" name="title" id="title" defaultValue={log.title}/><br/>
+                        <input type="text" name="title" id="title" defaultValue={log.title} required={true}/><br/>
                         <label htmlFor="bw">Body Weight in Pounds</label>
                         <input type="number" name="bodyWeight" id="bw" defaultValue={log.bodyWeight}/><br/>
                         <label htmlFor="description">Description</label>
