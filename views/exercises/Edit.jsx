@@ -24,7 +24,7 @@ class Edit extends React.Component {
                             </div>
                         )
                     })}
-                    <input type="submit"/>
+                    <h2><a href={`/logs/${log._id}`}>Cancel</a></h2><input type="submit"/>
                 </form>
             </Layout>
         )

@@ -51,6 +51,21 @@ router.delete('/:id', (req, res) => {
         res.redirect('/logs')
     })
 })
+router.delete('/:id/:position', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        const newRoutine = log.routine;
+        newRoutine.sort(sorter);
+        newRoutine.splice(req.params.position, 1)
+        newRoutine.forEach((exercise) => {
+            if(exercise.position > req.params.position){
+                exercise.position--
+            }
+        })
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, newLog) => {
+            res.redirect(`/logs/${req.params.id}`)
+        })
+    })
+})
 //Update
 router.put('/:id', (req, res) => {
     Log.findByIdAndUpdate(req.params.id, req.body, (error, log) => {
@@ -90,7 +105,7 @@ router.put('/:id/:position', (req, res) => {
             name: req.body.name,
             notes: req.body.notes,
             sets: [],
-            position: req.params.position
+            position: parseInt(req.params.position)
         }
         for(let i = 1; i <= exercise.sets.length; i++) {
             const set = {

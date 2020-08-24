@@ -88,44 +88,74 @@ textarea {
 }
 .routineItem {
     position: relative;
+    min-height: 65px;
     border-radius: 5px;
     padding: 10px;
+    padding-right: 43px;
     margin: 5px 0;
     background-color: rgba(255,255,255,.3);
+    overflow: hidden;
+}
+.showAdd {
+    margin: 10px auto;
+    text-align: center;
+}
+.editLink {
+    width: 90%;
+}
+.mover {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    background-image: linear-gradient(-45deg, transparent 40%, rgb(0, 29, 143) 40%);
+    padding: 0;
+    z-index: 1;
+    outline: none;
+}
+.mover:hover {
+    background-image: linear-gradient(-45deg, transparent 40%, rgb(23, 77, 255) 40%);
 }
 .upButton {
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    height: 20px;
-    width: 20px;
+    top: 30px;
     transform: rotate(45deg);
-    border: none;
-    border-radius: 3px;
-    background-color: transparent;
-    background-image: linear-gradient(-45deg, transparent 40%, black 40%);
 }
 .downButton {
-    position: absolute;
-    top: 25px;
-    right: 10px;
-    height: 20px;
-    width: 20px;
+    top: 55px;
     transform: rotate(-135deg);
-    border: none;
-    border-radius: 3px;
-    background-color: transparent;
-    background-image: linear-gradient(-45deg, transparent 40%, black 40%);
 }
 .move {
     position: absolute;
+    border: solid 2px rgb(0, 29, 143);
     font-size: 13px;
-    top: 18px;
-    right: 1px;
+    top: 23px;
+    right: 3px;
     width: 40px;
-    height: 15px;
+    height: 55px;
     text-align: center;
-    line-height: 15px;
+    line-height: 53px;
+    border-radius: 5px;
+    background-color: rgb(0, 123, 255, .7);
+}
+.showDelete {
+    width: 44px;
+    border: solid 2px red;
+    background-color: rgba(189, 0, 0, 0.6);
+    border-radius: 5px;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+.showDelete:hover {
+    background-color: rgb(189, 0, 0);
 }
 .logIndexContainer {
     border-radius: 5px;
