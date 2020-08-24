@@ -59,6 +59,9 @@ textarea {
     text-align: center;
     margin: 2px 1px;
 }
+.headerLink:hover {
+    background-color: rgba(0,0,0,.3);
+}
 .logShowContainer {
     border-radius: 5px;
     width: 80%;
@@ -75,6 +78,17 @@ textarea {
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+}
+.showDate {
+    background-color: rgba(255,255,255,.3);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.showInfo {
+    background-color: rgba(255,255,255,.3);
+    border-radius: 5px;
+    padding: 5px;
 }
 .routineHeader {
     text-align: center;
@@ -164,13 +178,14 @@ textarea {
     width: 80%;
     margin: 10px auto;
     min-width: 360px;
+    min-height: 125px;
     padding: 0;
     position: relative;
 }
 .logIndexContainer:hover {
     transition: .3s;
-    margin: 10px 9.5%;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    width: 81%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.3);
     cursor: pointer;
 }
 .indexP {

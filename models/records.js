@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const prSchema = new mongoose.Schema({
+const recordSchema = new mongoose.Schema({
     name: {type: String, required: true},
     date: {type: Date, required: true},
     description: {type: String},
@@ -10,6 +10,6 @@ const prSchema = new mongoose.Schema({
     color: {type: String, required: true}
 },{timestamps: true})
 
-const Pr = mongoose.model('Pr', prSchema);
+const Record = mongoose.model('Record', recordSchema);
 
-module.exports = Pr;
+module.exports = Record;

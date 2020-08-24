@@ -112,7 +112,10 @@ router.put('/:id/:position', (req, res) => {
                 setNumber: i,
                 reps: eval('req.body.reps' + i),
                 weight: eval('req.body.weight' + i),
-                date: log.date
+                date: log.date,
+                name: req.body.name,
+                bodyWeight: log.bodyWeight,
+                color: log.color
             }
             newExercise.sets.push(set);
         }
@@ -147,8 +150,12 @@ router.post('/:id', (req, res) => {
     for (let i = 1; i <= req.body.sets; i++) {
         const set = {
             setNumber: i,
+            name: req.body.name,
             weight: parseInt(req.body.weight),
-            reps: parseInt(req.body.reps)
+            reps: parseInt(req.body.reps),
+            date: new Date(req.body.date),
+            bodyWeight: parseInt(req.body.bodyWeight),
+            color: req.body.color
         }
         exercise.sets.push(set);
     }

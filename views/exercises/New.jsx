@@ -21,6 +21,9 @@ class New extends React.Component {
                         <label htmlFor="notes">Description</label>
                         <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
                         <input type="hidden" name="position" value={log.routine.length}/>
+                        <input type="hidden" name="date" value={log.date}/>
+                        <input type="hidden" name="bodyWeight" value={log.bodyWeight}/>
+                        <input type="hidden" name="color" value={log.color}/>
                         <input type="submit"/>
                     </form>
                 </div>
