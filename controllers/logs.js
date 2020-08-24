@@ -111,7 +111,8 @@ router.put('/:id/:position', (req, res) => {
             const set = {
                 setNumber: i,
                 reps: eval('req.body.reps' + i),
-                weight: eval('req.body.weight' + i)
+                weight: eval('req.body.weight' + i),
+                date: log.date
             }
             newExercise.sets.push(set);
         }
