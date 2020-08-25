@@ -13,23 +13,26 @@ class Templates extends React.Component {
             <Layout>
                 <div>
                     <div>
-                        <h1>Copy one of your previous workouts or start from scratch</h1>
+                        <h1 className='logIndexHeader'>Copy one of your previous workouts or start from scratch</h1>
                     </div>
                     <div>
-                        <a href="/logs/new">
-                            <div>
-                                <h1>Start from scratch</h1>
-                            </div>
-                        </a>
+                        <div className='newLogLink'>
+                            <a href="/logs/new">
+                                <h1 className='newLinkText'>Start from scratch</h1>
+                            </a>
+                        </div>
                         {logs.map((log) => {
                             return (
-                                <a href={`/logs/new/${log._id}`} key={log._id}>
-                                    <div style={{ 'backgroundColor': log.color }}>
-                                        <h1>{log.date.toDateString()}</h1>
-                                        <h2>{log.title}</h2>
-                                        <p>{log.description}</p>
-                                    </div>
-                                </a>
+                                <div className='logIndexContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
+                                    <a href={`/logs/new/${log._id}`} key={log._id}>
+                                        <div className='logIndexInner'>
+                                            <h1>{log.date.toDateString()}</h1>
+                                            <h2>{log.date.toLocaleTimeString()}</h2>
+                                            <h2>{log.title}</h2>
+                                            <p>{log.description}</p>
+                                        </div>
+                                    </a>
+                                </div>
                             )
                         })}
                     </div>

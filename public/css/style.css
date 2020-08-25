@@ -10,6 +10,7 @@
 
 a {
     color: black;
+    outline: none;
 }
 
 a:hover {
@@ -23,6 +24,7 @@ form {
 
 input {
     width: 100%;
+    outline: none;
 }
 
 input:hover {
@@ -75,7 +77,13 @@ textarea {
 .headerLink:hover {
     background-color: rgba(0, 0, 0, .3);
 }
-
+.footerBox {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(0, 58, 157);
+    position: absolute;
+    bottom: 0;
+}
 .logShowContainer {
     border-radius: 5px;
     width: 80%;
@@ -320,25 +328,77 @@ textarea {
     outline: none;
 }
 
+.setInput {
+    margin: 0 1.7%;
+}
+
 .colorInput {
     padding: 0;
     height: 35px;
     background-color: transparent;
 }
-
+.formReqInfo {
+    margin-left: 2.5%;
+}
 .formSubmit {
     background-color: rgb(0, 94, 255);
     color: white;
     font-size: 20px;
     padding: 2px;
+    margin-top: 10px;
+    width: 45%;
+}
+
+.formCancel {
+    background-color: rgb(154, 0, 0);
+    color: white;
+    font-size: 20px;
+    padding: 2px;
+    margin-top: 10px;
+    text-align: center;
+    width: 45%;
+}
+.formCancel:hover {
+    background-color: rgb(131, 0, 0);
+}
+
+.cancelSubmitBox {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .formSubmit:hover {
     background-color: rgb(19, 68, 230);
 }
 
+.formSet {
+    width: 100%;
+    margin: 0;
+}
+
 .newHeader {
     text-align: center;
     color: white;
     font-size: 40px;
+}
+
+.homeSlogan {
+    font-size: 50px;
+    text-align: center;
+    margin: 50px auto;
+    width: 60%;
+    min-width: 375px;
+}
+
+.homeTitle {
+    text-align: center;
+    color: white;
+}
+.homeParagraph {
+    color: white;
+    font-size: 20px;
+    text-indent: 15px;
+}
+.homeDiv {
+    width: 60%;
 }

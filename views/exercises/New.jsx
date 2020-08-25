@@ -6,25 +6,29 @@ class New extends React.Component {
         const log = this.props.log;
         return (
             <Layout>
-                <div>
+                <div className='formDiv'>
+                    <h1 className='newHeader'>New Exercise</h1>
                     <form action={`/logs/${log._id}`} method='POST'>
-                        <h2>Required</h2>
-                        <label htmlFor="name">Exercise Name</label>
-                        <input type="text" name="name" id="name" required='true' autoComplete='off' /><br />
-                        <h2>Optional</h2>
-                        <label htmlFor="sets">Expected Sets</label>
-                        <input type="number" name="sets" id="sets" /><br />
-                        <label htmlFor="reps">Expected Reps per Set</label>
-                        <input type="number" name="reps" id="reps" /><br />
-                        <label htmlFor="weight">Expected Weight in Pounds</label>
-                        <input type="number" name="weight" id="weight" /><br />
-                        <label htmlFor="notes">Description</label>
-                        <textarea name="notes" id="notes" cols="30" rows="5"></textarea>
+                        <h2 className='formReqInfo'>Required</h2>
+                        <label className='formLabel' htmlFor="name">Exercise Name</label>
+                        <input className='formInput' type="text" name="name" id="name" required='true' autoComplete='off' /><br />
+                        <h2 className='formReqInfo'>Optional</h2>
+                        <label className='formLabel' htmlFor="sets">Expected Sets</label>
+                        <input className='formInput' type="number" name="sets" id="sets" /><br />
+                        <label className='formLabel' htmlFor="reps">Expected Reps per Set</label>
+                        <input className='formInput' type="number" name="reps" id="reps" /><br />
+                        <label className='formLabel' htmlFor="weight">Expected Weight in Pounds</label>
+                        <input className='formInput' type="number" name="weight" id="weight" /><br />
+                        <label className='formLabel' htmlFor="notes">Description or Notes</label>
+                        <textarea className='formInput' name="notes" id="notes" cols="30" rows="5"></textarea>
                         <input type="hidden" name="position" value={log.routine.length} />
                         <input type="hidden" name="date" value={log.date} />
                         <input type="hidden" name="bodyWeight" value={log.bodyWeight} />
                         <input type="hidden" name="color" value={log.color} />
-                        <input type="submit" />
+                        <div className='cancelSubmitBox'>
+                            <a className='formInput formCancel' href={`/logs/${log._id}`}>Cancel</a>
+                            <input className='formInput formSubmit' type="submit" />
+                        </div>
                     </form>
                 </div>
             </Layout>

@@ -20,7 +20,10 @@ class NewCopy extends React.Component {
                         <label className='formLabel' htmlFor="color">Color</label>
                         <input className='formInput colorInput' type="color" name="color" id="color" defaultValue={log.color} /><br />
                         <input type="hidden" name="prevId" value={log._id} />
-                        <input className='formInput formSubmit' type="submit" />
+                        <div className='cancelSubmitBox'>
+                            <a className='formInput formCancel' href="/logs">Cancel</a>
+                            <input className='formInput formSubmit' type="submit" />
+                        </div>
                     </form>
                 </div>
             </Layout>

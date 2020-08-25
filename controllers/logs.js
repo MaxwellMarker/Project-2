@@ -70,6 +70,16 @@ router.delete('/:id/:position', (req, res) => {
         })
     })
 })
+router.get('/:id/:exercise/deleteset', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        const newRoutine = log.routine;
+        newRoutine.sort(sorter);
+        newRoutine[req.params.exercise].sets.pop()
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, log2) => {
+            res.redirect(`/logs/${req.params.id}/${req.params.exercise}/edit`)
+        })
+    })
+})
 //Update
 router.put('/:id', (req, res) => {
     Log.findByIdAndUpdate(req.params.id, req.body, (error, log) => {
@@ -182,6 +192,26 @@ router.post('/:id', (req, res) => {
     }, (error, update) => {
         console.log(error, update);
         res.redirect(`/logs/${req.params.id}`);
+    })
+})
+router.get('/:id/:exercise/addset', (req, res) => {
+    Log.findById(req.params.id, (error, log) => {
+        const newRoutine = log.routine;
+        newRoutine.sort(sorter);
+        const newExercise = newRoutine[req.params.exercise]
+        newExercise.sets[newExercise.sets.length] = {
+            name: newExercise.name,
+            setNumber: newExercise.sets.length + 1,
+            reps: 0,
+            weight: 0,
+            date: new Date(newExercise.date),
+            bodyWeight: parseInt(newExercise.bodyWeight),
+            color: newExercise.color
+        }
+        newRoutine[req.params.exercise] = newExercise;
+        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, log2) => {
+            res.redirect(`/logs/${req.params.id}/${req.params.exercise}/edit`)
+        })
     })
 })
 //Edit

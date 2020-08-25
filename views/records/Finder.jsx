@@ -5,13 +5,19 @@ class Finder extends React.Component {
     render() {
         return (
             <Layout>
-                <div>
+                <div className='logIndexHeader'>
+                    <h1>PR Finder</h1>
+                </div>
+                <div className='formDiv'>
                     <form action="/prs/new" method='POST'>
-                        <label htmlFor="name">Exercise Name</label>
-                        <input type="text" name="name" id="name" /><br />
-                        <label htmlFor="reps">Reps</label>
-                        <input type="text" name="reps" id="reps" /><br />
-                        <a href="/prs/new">Skip</a><input type="submit" value="Find" />
+                        <label className='formLabel' htmlFor="name">Exercise Name</label>
+                        <input className='formInput' type="text" name="name" id="name" autoComplete='off' /><br />
+                        <label className='formLabel' htmlFor="reps">Reps</label>
+                        <input className='formInput' type="text" name="reps" id="reps" autoComplete='off' /><br />
+                        <div className='cancelSubmitBox'>
+                            <a className='formInput formCancel' href="/prs/new">Skip</a>
+                            <input className='formInput formSubmit' type="submit" value="Find" />
+                        </div>
                     </form>
                 </div>
             </Layout>
