@@ -23,9 +23,12 @@ class Index extends React.Component {
                         return (
                             <div className='logIndexContainer' key={pr._id} style={{ 'border': `solid 5px ${pr.color}`, 'backgroundColor': pr.color + '66' }}>
                                 <div className='logIndexInner'>
-                                    <h1>{pr.name}</h1>
+                                    <h1 className='logIndexItemTitle'>{pr.name}</h1>
                                     <h2>{pr.date.toDateString()}</h2>
-                                    <h2>{pr.weight} lbs for {pr.reps} {pr.reps === 1 ? 'rep' : 'reps'}</h2>
+                                    {pr.weight && pr.reps
+                                        ? <h2>{pr.weight} lbs for {pr.reps} {pr.reps === 1 ? 'rep' : 'reps'}</h2>
+                                        : ''
+                                    }
                                     <p className='indexP'>{pr.description}</p>
                                     <form action={`/prs/${pr._id}?_method=DELETE`} method='POST'>
                                         <input className='deleteIndex' type="submit" value="Delete" />

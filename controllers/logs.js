@@ -57,11 +57,15 @@ router.delete('/:id/:position', (req, res) => {
         newRoutine.sort(sorter);
         newRoutine.splice(req.params.position, 1)
         newRoutine.forEach((exercise) => {
-            if(exercise.position > req.params.position){
+            if (exercise.position > req.params.position) {
                 exercise.position--
             }
         })
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, newLog) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error2, newLog) => {
             res.redirect(`/logs/${req.params.id}`)
         })
     })
@@ -79,7 +83,11 @@ router.put('/:id/up', (req, res) => {
         newRoutine.sort(sorter);
         newRoutine[req.body.position].position--
         newRoutine[req.body.position - 1].position++
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error, log) => {
             res.redirect(`/logs/${log._id}`);
         })
     })
@@ -91,7 +99,11 @@ router.put('/:id/down', (req, res) => {
         newRoutine.sort(sorter);
         newRoutine[req.body.position].position++
         newRoutine[req.body.position + 1].position--
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error, log) => {
             res.redirect(`/logs/${log._id}`);
         })
     })
@@ -107,7 +119,7 @@ router.put('/:id/:position', (req, res) => {
             sets: [],
             position: parseInt(req.params.position)
         }
-        for(let i = 1; i <= exercise.sets.length; i++) {
+        for (let i = 1; i <= exercise.sets.length; i++) {
             const set = {
                 setNumber: i,
                 reps: eval('req.body.reps' + i),
@@ -120,14 +132,18 @@ router.put('/:id/:position', (req, res) => {
             newExercise.sets.push(set);
         }
         newRoutine[req.params.position] = newExercise
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error, log) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error, log) => {
             res.redirect(`/logs/${req.params.id}`);
         })
     })
 })
 //Create
 router.post('/', (req, res) => {
-    if(req.body.prevId){
+    if (req.body.prevId) {
         Log.findById(req.body.prevId, (error, log) => {
             req.body.routine = log.routine;
             Log.create(req.body, (error, newLog) => {

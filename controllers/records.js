@@ -4,7 +4,6 @@ const Record = require('../models/records.js');
 const Log = require('../models/logs.js')
 let recordVariable = false;
 
-
 //Index
 router.get('/', (req, res) => {
     Record.find({}, (error, records) => {
@@ -27,14 +26,14 @@ router.get('/new', (req, res) => {
     recordVariable = false;
 })
 router.post('/new', (req, res) => {
-    if(req.body.name && req.body.reps) {
+    if (req.body.name && req.body.reps) {
         Log.find({}, (error, logs) => {
             const exerciseArray = [];
             logs.map((log) => {
                 log.routine.map((exercise) => {
                     console.log(req.body);
-                    if(exercise.name){
-                        if(exercise.name.toLowerCase() === req.body.name.toLowerCase()) {
+                    if (exercise.name) {
+                        if (exercise.name.toLowerCase() === req.body.name.toLowerCase()) {
                             exerciseArray.push(exercise)
                         }
                     }
@@ -43,7 +42,7 @@ router.post('/new', (req, res) => {
             const recordArray = [];
             exerciseArray.map((exercise) => {
                 exercise.sets.map((set) => {
-                    if(parseInt(set.reps) === parseInt(req.body.reps)) {
+                    if (parseInt(set.reps) === parseInt(req.body.reps)) {
                         recordArray.push(set)
                     }
                 })
@@ -60,9 +59,17 @@ router.post('/new', (req, res) => {
     }
 })
 //Delete
-
+router.delete('/:id', (req, res) => {
+    Record.findByIdAndDelete(req.params.id, (error, deleted) => {
+        res.redirect('/prs')
+    })
+})
 //Update
-
+router.put('/:id', (req, res) => {
+    Record.findByIdAndUpdate(req.params.id, req.body, (error, record) => {
+        res.redirect('/prs');
+    })
+})
 //Create
 router.post('/', (req, res) => {
     Record.create(req.body, (error, record) => {
@@ -70,5 +77,11 @@ router.post('/', (req, res) => {
     })
 })
 //Edit
-
+router.get('/:id/edit', (req, res) => {
+    Record.findById(req.params.id, (error, record) => {
+        res.render('records/Edit', {
+            record: record
+        })
+    })
+})
 module.exports = router;

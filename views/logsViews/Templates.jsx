@@ -24,7 +24,7 @@ class Templates extends React.Component {
                         {logs.map((log) => {
                             return (
                                 <a href={`/logs/new/${log._id}`} key={log._id}>
-                                    <div style={{'backgroundColor': log.color}}>
+                                    <div style={{ 'backgroundColor': log.color }}>
                                         <h1>{log.date.toDateString()}</h1>
                                         <h2>{log.title}</h2>
                                         <p>{log.description}</p>

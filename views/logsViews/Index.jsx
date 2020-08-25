@@ -24,7 +24,7 @@ class Index extends React.Component {
                             <div className='logIndexContainer' key={log._id} style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
                                 <a className='showLink' href={`logs/${log._id}`} key={log._id}>
                                     <div className='logIndexInner'>
-                                        <h1>{log.date.toDateString()}</h1>
+                                        <h1 className='logIndexItemTitle'>{log.date.toDateString()}</h1>
                                         <h2>{log.date.toLocaleTimeString()}</h2>
                                         <h2>{log.title}</h2>
                                         <p className='indexP'>{log.description}</p>

@@ -3,32 +3,41 @@
     text-decoration: none;
     font-family: 'Avenir', Arial;
 }
+
 :hover {
     cursor: unset;
 }
+
 a {
     color: black;
 }
+
 a:hover {
     cursor: pointer;
 }
+
 form {
     display: flex;
     flex-direction: column;
 }
+
 input {
     width: 100%;
 }
+
 input:hover {
     cursor: text;
 }
+
 input[type=submit] {
     cursor: pointer;
 }
+
 textarea {
     resize: none;
     width: 100%;
 }
+
 .allHeader {
     background-color: rgb(0, 123, 255);
     width: 100%;
@@ -38,30 +47,35 @@ textarea {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .headerNav {
     display: flex;
     width: 100%;
     justify-content: center;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, .2);
 }
+
 .headerTitle {
     height: 80px;
     line-height: 80px;
     color: white;
     font-size: 65px;
 }
+
 .headerLink {
     color: white;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, .2);
     width: 100px;
     height: 25px;
     line-height: 25px;
     text-align: center;
     margin: 2px 1px;
 }
+
 .headerLink:hover {
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
 }
+
 .logShowContainer {
     border-radius: 5px;
     width: 80%;
@@ -72,6 +86,7 @@ textarea {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .showWorkoutInfo {
     width: 45%;
     min-width: 300px;
@@ -79,22 +94,26 @@ textarea {
     padding: 10px;
     margin: 10px 0;
 }
+
 .showDate {
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255, 255, 255, .3);
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 5px;
 }
+
 .showInfo {
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255, 255, 255, .3);
     border-radius: 5px;
     padding: 5px;
 }
+
 .routineHeader {
     text-align: center;
     border-radius: 5px;
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255, 255, 255, .3);
 }
+
 .showRoutine {
     width: 45%;
     min-width: 300px;
@@ -102,6 +121,7 @@ textarea {
     padding: 10px;
     margin: 10px 0;
 }
+
 .routineItem {
     position: relative;
     min-height: 65px;
@@ -109,16 +129,19 @@ textarea {
     padding: 10px;
     padding-right: 43px;
     margin: 5px 0;
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255, 255, 255, .3);
     overflow: hidden;
 }
+
 .showAdd {
     margin: 10px auto;
     text-align: center;
 }
+
 .editLink {
     width: 90%;
 }
+
 .mover {
     position: absolute;
     height: 20px;
@@ -132,17 +155,21 @@ textarea {
     z-index: 1;
     outline: none;
 }
+
 .mover:hover {
     background-image: linear-gradient(-45deg, transparent 40%, rgb(23, 77, 255) 40%);
 }
+
 .upButton {
     top: 30px;
     transform: rotate(45deg);
 }
+
 .downButton {
     top: 55px;
     transform: rotate(-135deg);
 }
+
 .move {
     position: absolute;
     border: solid 2px rgb(0, 29, 143);
@@ -156,6 +183,7 @@ textarea {
     border-radius: 5px;
     background-color: rgb(0, 123, 255, .7);
 }
+
 .showDelete {
     width: 44px;
     border: solid 2px red;
@@ -170,9 +198,11 @@ textarea {
     top: 3px;
     right: 3px;
 }
+
 .showDelete:hover {
     background-color: rgb(189, 0, 0);
 }
+
 .logIndexContainer {
     border-radius: 5px;
     width: 80%;
@@ -182,20 +212,30 @@ textarea {
     padding: 0;
     position: relative;
 }
+
+.logIndexItemTitle {
+    font-size: 30px;
+    width: 75%;
+}
+
 .logIndexContainer:hover {
     transition: .3s;
     width: 81%;
-    box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
     cursor: pointer;
 }
+
 .indexP {
     width: 70%;
+    font-size: 20px;
 }
+
 .logIndexHeader {
     margin: 10px;
     text-align: center;
     font-size: 26px;
 }
+
 .newLogLink {
     margin: 10px auto;
     background-color: rgb(0, 123, 255);
@@ -205,31 +245,37 @@ textarea {
     border-radius: 5px;
     transition: .3s;
 }
+
 .newLogLink:hover {
     background-color: rgb(0, 94, 255);
 }
+
 .newLinkText {
     color: white;
 }
+
 .logIndexInner {
     padding: 10px;
 }
+
 .deleteIndex {
     border: solid 5px rgb(184, 60, 60);
     border-radius: 5px;
     color: white;
     font-size: 20px;
     width: 15%;
-    min-width: 80px;
+    min-width: 85px;
     height: 55px;
     position: absolute;
     top: 5%;
     right: 10px;
     background-color: rgba(184, 60, 60, .6);
 }
+
 .deleteIndex:hover {
     background-color: rgb(184, 60, 60);
 }
+
 .editIndex {
     box-sizing: border-box;
     border: solid 5px rgb(0, 123, 255);
@@ -246,6 +292,53 @@ textarea {
     right: 10px;
     background-color: rgba(0, 123, 255, .6);
 }
+
 .editIndex:hover {
     background-color: rgb(0, 123, 255);
+}
+
+.formDiv {
+    width: 50%;
+    margin: 10px auto;
+    background-color: rgba(0, 123, 255, .6);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 345px;
+}
+
+.formLabel {
+    margin-left: 2.5%;
+    color: white;
+}
+
+.formInput {
+    width: 95%;
+    margin: 0 auto;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.colorInput {
+    padding: 0;
+    height: 35px;
+    background-color: transparent;
+}
+
+.formSubmit {
+    background-color: rgb(0, 94, 255);
+    color: white;
+    font-size: 20px;
+    padding: 2px;
+}
+
+.formSubmit:hover {
+    background-color: rgb(19, 68, 230);
+}
+
+.newHeader {
+    text-align: center;
+    color: white;
+    font-size: 40px;
 }
