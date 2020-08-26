@@ -13,19 +13,19 @@ class Show extends React.Component {
         return (
             <Layout>
                 <div className='logShowContainer' style={{ 'border': `solid 5px ${log.color}`, 'backgroundColor': log.color + '66' }}>
-                    <div className='showWorkoutInfo' style={{ 'border': `solid 5px ${log.color}00`, 'backgroundColor': log.color + '66' }}>
+                    <div className='showWorkoutInfo' style={{ 'border': `solid 5px ${log.color}00`, 'backgroundColor': log.color + '88' }}>
                         <h1 className='showDate'>{log.date.toDateString()}</h1>
                         <div className='showInfo'>
                             <h2>{log.date.toLocaleTimeString()}</h2>
-                            <h2>{log.title}</h2>
                             {log.bodyWeight
                                 ? <h2>Body Weight: {log.bodyWeight} lbs</h2>
                                 : ''
                             }
+                            <h2>{log.title}</h2>
                             <p>{log.description}</p>
                         </div>
                     </div>
-                    <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}00`, 'backgroundColor': log.color + '66' }}>
+                    <div className='showRoutine' style={{ 'border': `solid 5px ${log.color}00`, 'backgroundColor': log.color + '88' }}>
                         <h2 className='routineHeader'>Routine</h2>
                         {log.routine.map((exer) => {
                             const sameReps = (set) => { return set.reps === exer.sets[0].reps }

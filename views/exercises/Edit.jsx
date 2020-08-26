@@ -25,12 +25,12 @@ class Edit extends React.Component {
                                 </div>
                             )
                         })}
-                        <div>
-                            <div>
-                                <a href={`/logs/${log._id}/${exercise.position}/addset`}>Add Set</a>
+                        <div className='addDeleteBox'>
+                            <div className='add setButton'>
+                                <a className='setButtonText' href={`/logs/${log._id}/${exercise.position}/addset`}>Add Set</a>
                             </div>
-                            <div>
-                                <a href={`/logs/${log._id}/${exercise.position}/deleteset`}>Delete Set</a>
+                            <div className='delete setButton'>
+                                <a className='setButtonText' href={`/logs/${log._id}/${exercise.position}/deleteset`}>Delete Set</a>
                             </div>
                         </div>
                         <div className='cancelSubmitBox'>
