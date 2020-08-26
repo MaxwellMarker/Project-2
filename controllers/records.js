@@ -25,6 +25,7 @@ router.get('/new', (req, res) => {
     })
     recordVariable = false;
 })
+//New PR / PR Finder//
 router.post('/new', (req, res) => {
     if (req.body.name && req.body.reps) {
         Log.find({}, (error, logs) => {

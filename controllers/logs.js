@@ -75,7 +75,11 @@ router.get('/:id/:exercise/deleteset', (req, res) => {
         const newRoutine = log.routine;
         newRoutine.sort(sorter);
         newRoutine[req.params.exercise].sets.pop()
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, log2) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error2, log2) => {
             res.redirect(`/logs/${req.params.id}/${req.params.exercise}/edit`)
         })
     })
@@ -118,6 +122,7 @@ router.put('/:id/down', (req, res) => {
         })
     })
 })
+//Update Exercise//
 router.put('/:id/:position', (req, res) => {
     Log.findById(req.params.id, (error, log) => {
         const newRoutine = log.routine
@@ -209,7 +214,11 @@ router.get('/:id/:exercise/addset', (req, res) => {
             color: newExercise.color
         }
         newRoutine[req.params.exercise] = newExercise;
-        Log.findByIdAndUpdate(req.params.id, {$set:{routine: newRoutine}}, (error2, log2) => {
+        Log.findByIdAndUpdate(req.params.id, {
+            $set: {
+                routine: newRoutine
+            }
+        }, (error2, log2) => {
             res.redirect(`/logs/${req.params.id}/${req.params.exercise}/edit`)
         })
     })

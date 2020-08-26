@@ -29,7 +29,10 @@ class Index extends React.Component {
                                         ? <h2>{pr.weight} lbs for {pr.reps} {pr.reps === 1 ? 'rep' : 'reps'}</h2>
                                         : ''
                                     }
-                                    <h2>at {pr.bodyWeight} lbs bw</h2>
+                                    {pr.bodyWeight
+                                        ? <h2>at {pr.bodyWeight} lbs bw</h2>
+                                        : ''
+                                    }
                                     <p className='indexP'>{pr.description}</p>
                                     <form action={`/prs/${pr._id}?_method=DELETE`} method='POST'>
                                         <input className='deleteIndex' type="submit" value="Delete" />
