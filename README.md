@@ -4,10 +4,6 @@
 - Express
 - JSX
 - MongoDB and Mongoose
-- Heroku
-
-## Live Heroku Link
-https://rest-day.herokuapp.com/
 
 ## Approach
 - REST Day is mainly an app for tracking your workouts. I have written notes about my workouts in my phone for years and I wanted to try to make a better way to do it. My workouts don't change much day to day and with REST Day I can use previous workouts as templates to log new ones with just a few clicks. Also, you don't have to look around your notes to find records of your lifts because REST Day has a record finder that can find a set you have entered based on the name of the exercise and the amount of reps.
